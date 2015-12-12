@@ -1,25 +1,31 @@
 <project>
 
-    <target name="clean">
-        <delete dir="build"/>
-    </target>
+	<target name="clean">
+		<delete dir="build"/>
+	</target>
 
-    <target name="compile">
-        <mkdir dir="build/classes"/>
-        <javac srcdir="src" destdir="build/classes"/>
-    </target>
+	<target name="compile">
+		<mkdir dir="build/classes"/>
+		<javac srcdir="src" destdir="build/classes"/>
+	</target>
 
-    <target name="jar">
-        <mkdir dir="build/jar"/>
-        <jar destfile="build/jar/HelloWorld.jar" basedir="build/classes">
-            <manifest>
-                <attribute name="Main-Class" value="JavaHelloWorld.src.Main"/>
-            </manifest>
-        </jar>
-    </target>
+	<target name="jar">
+		<mkdir dir="build/jar"/>
+		<jar destfile="build/jar/JavaNewProject.jar" basedir="build/classes">
+			<manifest>
+				<attribute name="Main-Class" value="JavaNewProject.src.Main"/>
+			</manifest>
+		</jar>
+	</target>
 
-    <target name="run">
-        <java jar="build/jar/HelloWorld.jar" fork="true"/>
-    </target>
+	<target name="run">
+		<java jar="build/jar/JavaNewProject.jar" fork="true"/>
+	</target>
+
+	<target name="build">
+		<antcall target="compile"/>
+		<antcall target="jar"/>
+		<antcall target="run"/>
+	</target>
 
 </project>

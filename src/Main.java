@@ -1,4 +1,4 @@
-package JavaHelloWorld.src;
+package JavaNewProject.src;
 
 public class Main {
 
